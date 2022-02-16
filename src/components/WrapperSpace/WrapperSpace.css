@@ -1,8 +1,0 @@
-.wrapper__space{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.makeStyles-root-1 .wrapper__space{
-    padding-right: 14px;
-}

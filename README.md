@@ -1,71 +1,42 @@
-# `@project-serum/swap-ui`
+# Serum DEX UI
 
-[![Build Status](https://travis-ci.com/project-serum/swap-ui.svg?branch=master)](https://travis-ci.com/project-serum/swap-ui)
-[![npm](https://img.shields.io/npm/v/@project-serum/swap-ui.svg)](https://www.npmjs.com/package/@project-serum/swap-ui)
+An implementation of a UI for the Serum DEX.
 
-A reusable React component for swapping on the Serum DEX. The Solana program can be
-found [here](https://github.com/project-serum/swap).
+### Running the UI
 
-## Usage
+Run `yarn` to install dependencies, then run `yarn start` to start a development server or `yarn build` to create a production build that can be served by a static file server. Note that prior to compiling you need to add charts yourself (see below).
 
-#### Install
+### Collect referral fees
 
-First install the required peer dependencies into your React project.
+If you are hosting a public UI using this codebase, you can collect referral fees when your users trade through your site.
 
-```
-yarn add @material-ui/core @material-ui/icons @material-ui/lab @project-serum/anchor @solana/spl-token-registry @solana/web3.js material-ui-popup-state react-async-hook
-```
+To do so, set the `REACT_APP_USDT_REFERRAL_FEES_ADDRESS` and `REACT_APP_USDC_REFERRAL_FEES_ADDRESS` environment variables to the addresses of your USDT and USDC SPL token accounts.
 
-Then install the package.
+You may want to put these in local environment files (e.g. `.env.development.local`, `.env.production.local`). See the [documentation](https://create-react-app.dev/docs/adding-custom-environment-variables) on environment variables for more information.
 
-```
-yarn add @project-serum/swap-ui
-```
+NOTE: remember to re-build your app before deploying for your referral addresses to be reflected.
 
-#### Add the Swap Component
+### Add Trading View charts
 
-To embed the `Swap` component into your application,
-one can minimally provide an [Anchor](https://github.com/project-serum/anchor)
-[Provider](https://project-serum.github.io/anchor/ts/classes/provider.html)
-and [TokenListContainer](https://github.com/solana-labs/token-list).
-For example,
+It is now required to add OHLCV candles built from on chain data using [Bonfida's API](https://docs.bonfida.com). Here is how to do it:
 
- ```javascript
-<Swap provider={provider} tokenList={tokenList} />
-```
+1. Get access to the [TradingView Charting Library](https://github.com/tradingview/charting_library/) repository. This is a **private repository** and it will **return a 404 if you don't have access to it**. To get access to the repository please refer to [TradingView's website](https://www.tradingview.com/HTML5-stock-forex-bitcoin-charting-library/)
 
-All of the complexity of communicating with the Serum DEX and managing
-its data is handled internally by the component.
+2. Once you have access to the Charting Library repository:
 
-#### Referral Fees
+- Copy `charting_library` folder from https://github.com/tradingview/charting_library/ to `/public` and to `/src` folders.
+- Copy `datafeeds` folder from https://github.com/tradingview/charting_library/ to `/public`.
 
-To earn referral fees, one can also pass in a `referral` property,
-which is the `PublicKey` of the Solana wallet that *owns* the associated
-token accounts in which referral fees are paid (i.e., USDC and USDT).
+---
 
-## Developing
+See the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started) for other commands and options.
 
-#### Install dependencies
+---
 
-```
-yarn
-```
+See [A technical introduction to the Serum DEX](https://docs.google.com/document/d/1isGJES4jzQutI0GtQGuqtrBUqeHxl_xJNXdtOv4SdII/view) to learn more about the Serum DEX.
 
-#### Build
+See [serum-js](https://github.com/project-serum/serum-js) for DEX client-side code. Serum DEX UI uses this library.
 
-```
-yarn build
-```
+See [sol-wallet-adapter](https://github.com/project-serum/sol-wallet-adapter) for an explanation of how the Serum DEX UI interacts with wallet services to sign and send requests to the Serum DEX.
 
-## Run the example app
-
-For local development and educational purposes, a minimal React app is provided
-in the `example/` subdirectory.
-
-To run, change directories via `cd example/` and start the app.
-
-### Start the app
-
-```
-yarn start
-```
+See [spl-token-wallet](https://github.com/project-serum/spl-token-wallet) for an implementation of such a wallet, live at [sollet.io](https://sollet.io).

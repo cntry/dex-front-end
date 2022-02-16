@@ -1,8 +1,10 @@
 import './Header.css';
 
+import WalletConnect from '../WalletConnect';
+
 import {
   makeStyles,
-  Button,
+  // Button,
   // Switch,
 } from "@material-ui/core";
 import React from 'react';
@@ -28,14 +30,7 @@ const useStyles = makeStyles((theme) => ({
   // }
 }));
 
-export const Header = (props: {
-  isConnected: boolean;
-  wallet: any;
-}) => {
-  const {
-    isConnected,
-    wallet,
-  } = props;
+export const Header = () => {
 
   const styles = useStyles();
 
@@ -49,25 +44,27 @@ export const Header = (props: {
           href="https://cntry.io/"
           className="header__menu_punct link"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
         >
           home
         </a>
         <a
           href="https://swap.cntry.io/"
-          className="header__menu_punct link header__menu_punct-active"
+          className="header__menu_punct link"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           swap
         </a>
-        {/* <a
+        <a
           href="#/"
-          className="header__menu_punct link"
+          className="header__menu_punct link header__menu_punct-active"
           target="_blank"
           rel="noreferrer"
         >
           trade
         </a>
-        <a
+        {/* <a
           href="#/"
           className="header__menu_punct link header__menu_punct-active"
           target="_blank"
@@ -102,13 +99,14 @@ export const Header = (props: {
           src="wallet.svg"
           alt="wallet"
         />
+        <WalletConnect />
         {/* <div className="header__wallet_text">Connect Wallet</div> */}
-        <div
+        {/* <div
           className={styles.header__swap_button}
           onClick={() => (!isConnected ? wallet.connect() : wallet.disconnect())}
         >
           Connect Wallet
-        </div>
+        </div> */}
       </div>
       {/* <div className="header__switcher wrapper">
         <img src="light.svg" alt="lightTheme" />

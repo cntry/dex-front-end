@@ -1,0 +1,71 @@
+.mainTable {
+  width: 100%;
+  font-size: 10px;
+  line-height: 12px;
+  color: #000;
+}
+
+.mainTableTh {
+  padding-bottom: 5px;
+  color: #828282;
+}
+
+.mainTableTh:nth-child(1) {
+  width: 15px;
+}
+
+.mainTableTh:nth-child(2) {
+  width: 110px;
+}
+
+.mainTableTh:nth-child(3) {
+  width: 175px;
+}
+
+.mainTableTd {
+  padding-bottom: 8px;
+}
+
+.mainTableImage {
+  margin-right: 2px;
+}
+
+.mainTableFilterStarCheckbox {
+  opacity: 0;
+  cursor: pointer;
+}
+
+.mainTableFilterStarOn,
+.mainTableFilterStarOff {
+  margin-right: 10px;
+  padding-bottom: 2px;
+  width: 16px;
+  height: 16px;
+  background-image: url('../TopSixCoins/emptyStar.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  /* cursor: pointer; */
+}
+
+.mainTableFilterStarOn {
+  background-image: url('../TopSixCoins/fullStar.svg');
+}
+
+.mainTableTdPairWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.mainTableTdPair {
+  display: flex;
+  align-items: center;
+}
+
+.mainTableTdPairBase {
+  margin-right: 2px;
+  color: #2f80ed;
+}
+
+.mainTableTdPairQuote {
+  color: #828282;
+}
