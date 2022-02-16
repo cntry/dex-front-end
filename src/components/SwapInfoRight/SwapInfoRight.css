@@ -1,0 +1,17 @@
+.swap__infoRight {
+  display: flex;
+}
+
+.swap__approximateValue {
+  font-size: 12px;
+  line-height: 22px;
+  color: #828282;
+  margin-right: 8px;
+}
+
+.swap__tokenValue {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 22px;
+  color: #333;
+}
