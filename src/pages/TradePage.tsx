@@ -145,7 +145,7 @@ function TradePageInner() {
   });
 
   useEffect(() => {
-    document.title = marketName ? `${marketName} — Serum` : 'Serum';
+    document.title = marketName ? `${marketName} — CNTRY.io DEX` : 'CNTRY.io DEX';
   }, [marketName]);
 
   const changeOrderRef = useRef<
